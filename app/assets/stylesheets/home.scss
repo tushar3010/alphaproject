@@ -1,3 +1,44 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+*{
+	margin: 0;
+	padding: 0;
+}
+
+
+header{
+	height:60px;
+	width:100%;
+	background-color: rgb(43, 147, 199);
+	dislpay:flex;
+	align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid grey;
+
+
+
+	a{
+		color:red;
+		font-size:20px;
+		margin-right: 20px;
+	}
+}
+
+div.create_ques{
+	left : 10%;
+	width:80%;
+	dislpay:flex;
+	align-items: center;
+	flex-direction: column;
+
+}
+
+
+#totop{
+	position: fixed; 
+	color:blue;
+	right: 10px;
+}
+

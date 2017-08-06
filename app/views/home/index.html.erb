@@ -1,8 +1,45 @@
 
 <header>
-	<img src="">
+	<img src="/home/Downloads/14753307_1794120780859714_5844849096759401855_o.jpg" alt="logo">
 
-	
-	
-	
+	 
+	<a href="http://www.codingninjas.in/students/assignments">
+        Users
+    </a>
+
+    <a href="">
+        SignOut
+    </a>
 </header>
+
+
+<div class="create_ques">
+
+	<%= form_tag url_for(controller: 'home',action: 'ques',method: :post) do %>
+
+	<%= text_area_tag :content %>
+	<%= submit_tag 'Ask' %>
+
+<% end %>
+
+</div>
+
+<div class="main">
+	<%  @questions.each do |q|  %>
+
+			<%= q.content %>
+			<%= q.user.email%>
+			<br>
+
+			<% q.answers.each do |a| %>
+				<li><%= a.answer %></li>
+			<% end %>
+	<% end %>
+
+</div>	
+
+
+<br>
+<br>
+
+<a id="totop" href="#linksHeading">Go to top of the page</a>
