@@ -11,35 +11,52 @@
         SignOut
     </a>
 </header>
+<br>
 
+<main>
+	
+	<div class="leftblock"> left</div>	
+	<div class="centreblock">
 
-<div class="create_ques">
+		<div class="create_ques">
 
-	<%= form_tag url_for(controller: 'home',action: 'ques',method: :post) do %>
+			<%= form_tag url_for(controller: 'home',action: 'ques',method: :post) do %>
 
-	<%= text_area_tag :content %>
-	<%= submit_tag 'Ask' %>
+			<%= text_area_tag :content %>
+			<%= submit_tag 'Ask' %>
 
-<% end %>
-
-</div>
-
-<div class="main">
-	<%  @questions.each do |q|  %>
-
-			<%= q.content %>
-			<%= q.user.email%>
-			<br>
-
-			<% q.answers.each do |a| %>
-				<li><%= a.answer %></li>
 			<% end %>
-	<% end %>
 
-</div>	
+		</div>
+
+		<div class="hey">
+			<%  @questions.each do |q|  %>
+
+					<%= q.user.email%>
+					<br>
+					<%= q.content %>
+					<br>
+
+					<% q.answers.each do |a| %>
+						<li><%= a.answer %></li>
+					<% end %>
+			<% end %>
+
+		</div>	
+
+	</div>
+	<div class="rightblock"> right</div>
+
+</main>
 
 
 <br>
 <br>
 
-<a id="totop" href="#linksHeading">Go to top of the page</a>
+
+<footer> 
+	<a id="totop" href="#linksHeading">Go to top of the page</a>
+
+
+
+</footer>
