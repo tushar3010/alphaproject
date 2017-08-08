@@ -1,21 +1,32 @@
 
 <header>
-	<img src="/home/Downloads/14753307_1794120780859714_5844849096759401855_o.jpg" alt="logo">
+	
+    <!-- Dropdown Structure -->
+	<ul id="dropdown1" class="dropdown-content">
+	  <li><a href="#!">one</a></li>
+	  <li><a href="#!">two</a></li>
+	  <li class="divider"></li>
+	  <li><a href="#!">three</a></li>
+	</ul>
+	<nav>
+	  <div class="nav-wrapper">
+	    <a href="#!" class="brand-logo"><img src="/home/Downloads/14753307_1794120780859714_5844849096759401855_o.jpg" alt="logo"></a>
+	    <ul class="right hide-on-med-and-down">
+	      <li><%= link_to "Users", '/' %></li>
+	      <li><%= link_to "Profile", '/profile' %></li>
+	      <li><%= link_to "Sign Out",destroy_user_session_path,method: :delete %></li>
+	      <!-- Dropdown Trigger -->
+	      <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
+	    </ul>
+	  </div>
+	</nav>
 
-	 
-	<a href="http://www.codingninjas.in/students/assignments">
-        Users
-    </a>
-
-    <a href="">
-        SignOut
-    </a>
 </header>
 <br>
 
 <div class="main">
 	
-	<div class="leftblock"> left</div>	
+	<div class="leftblock"> </div>	
 	<div class="centreblock">
 
 		<div class="create_ques">
@@ -29,13 +40,32 @@
 
 		</div>
 
-		<div class="hey">
+		<div class="ques">
 			<%  @questions.each do |q|  %>
 
+					<!-- <ul class="email"> -->
+					<ul style="font-weight: bold;"">
 					<%= q.user.email%>
-					<br>
+					</ul>
+
 					<%= q.content %>
 					<br>
+
+								 <!-- Modal Trigger -->
+			  <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+
+			  <!-- Modal Structure -->
+			  <div id="modal1" class="modal modal-fixed-footer">
+			    <div class="modal-content">
+			      <h4>Modal Header</h4>
+			      <p>A bunch of text</p>
+			    </div>
+			    <div class="modal-footer">
+			      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+			    </div>
+			  </div>
+
+
 
 					<% q.answers.each do |a| %>
 						<li><%= a.answer %></li>
@@ -45,7 +75,7 @@
 		</div>	
 
 	</div>
-	<div class="rightblock"> right</div>
+	<div class="rightblock"> </div>
 
 </div>
 
@@ -53,10 +83,10 @@
 <br>
 <br>
 
-
+   
 <footer> 
 	<a id="totop" href="#linksHeading">Go to top of the page</a>
 
-
-
+	
+ 
 </footer>

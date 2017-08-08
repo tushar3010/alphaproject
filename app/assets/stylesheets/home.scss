@@ -11,18 +11,23 @@
 header{
 	height:60px;
 	width:100%;
-	background-color: rgb(43, 147, 199);
+	background-color: rgb(42, 159, 188);
 	dislpay:flex;
 	align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid grey;
 
+    img{
+    	height: 50px;
+    	width: 50px;
+    }
 
-
-	a{
-		color:red;
-		font-size:20px;
-		margin-right: 20px;
+	ul#links{
+		li{
+			color:black;
+			font-size:17px;
+			margin-right: 17px;
+		}
 	}
 }
 
@@ -30,23 +35,32 @@ header{
 .main{
 	display : flex;
 	width:100%;
-	background-color: aqua;
+	
 	justify-content: space-between;
 	
 	.leftblock{
 		width: 20%;
-		background-color: red;
+		
 	
 	}
 
 	.centreblock{
 		width: 60%;
-		background-color: blue;
+		background-color: rgb(226, 236, 236);	
+
+		.create_ques{
+			
+		}
+		.ques{
+			background-color: aqua;
+			
+		}
+
 	}
 
 	.rightblock{
 		width: 20%;
-		background-color: green;
+		
 	}
 
 }
@@ -57,7 +71,7 @@ footer{
 	width : 100%;
 	position : fixed;
 	bottom:0px;
-	background-color: red;
+	background-color: rgb(121, 114, 105);
 
 }
 

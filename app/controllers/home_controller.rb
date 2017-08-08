@@ -19,4 +19,8 @@ class HomeController < ApplicationController
 		redirect_to '/'
 	end
 
+	def all_users
+		@users = User.all
+	end
+
 end
