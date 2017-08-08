@@ -23,4 +23,22 @@ class HomeController < ApplicationController
 		@users = User.all
 	end
 
+	def toggle_question_upvote
+		@question = Question.find(params[:id])
+		upvote = @question.upvotes.first
+
+		if upvote.nil?
+			@question.upvotes.create
+		else
+			upvote.destroy
+		end
+
+		respond_to do |format|
+			format.js{
+
+			}
+		end
+
+	end
+
 end

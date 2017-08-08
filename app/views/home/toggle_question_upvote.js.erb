@@ -1,0 +1,14 @@
+console.log("Hey");
+<% str = "#question_#{@question.id}" %>
+var link = $("<%= str %>");
+var stringValue = link.text();
+var finalValue = toggle(stringValue);
+console.log(finalValue);
+link.html(finalValue);
+
+function toggle(stringValue){
+	if(stringValue=="Downvote")
+		return "Upvote"
+	else
+		return "Downvote"
+}
