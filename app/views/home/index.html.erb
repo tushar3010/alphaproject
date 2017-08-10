@@ -51,31 +51,34 @@
 					<%= q.content %>
 					<br>
 			<!-- Modal Trigger -->
-			<div class="modalff">						 
-				  <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Answers</a>
+			<div class="modalff">
+				  
+				  <% str="#answer_modal_#{q.id}" %>							 
+				  <a class="waves-effect waves-light btn modal-trigger" href=<%=str%> >Answers</a>
 				  
 				  <% str="/toggle_question_upvote/#{q.id}" %>
 				  <% html_id_for_ques = "question_#{q.id}" %>
 				  <% upvote_status = is_question_upvoted(q.id) ? "Downvote" : "Upvote" %>
 				  <%= link_to upvote_status,str,method: :post,:id=>html_id_for_ques,:remote=>true %>
+				  <% str="answer_modal_#{q.id}" %>	
 				  
 				  <!-- Modal Structure -->
-				  <div id="modal1" class="modal modal-fixed-footer">
+				  <div id=<%= str %> class="modal modal-fixed-footer">
 				    <div class="modal-content">
-				      <h4>Modal Header</h4>
-				      <p>A bunch of text</p>
+				      <%= form_tag url_for(controller: 'home',action: 'answer',method: :post,:id=>q.id),:class=>"answer_form",:id=>"ans_form_#{q.id}",remote: true do%>
+				      		<%= text_area_tag :content%>
+				      		<%= submit_tag :Submit,:class=>"modal-action modal-close waves-effect waves-green btn-flat " %>
+				      <% end %>				    	
+				      <h4>Answers</h4>
+				      <ul>
+				      	<% q.answers.each do |a| %>
+								<%= render 'answer',:a => a %>
+						<% end %>
+				      </ul>	
 				    </div>
-				    <div class="modal-footer">
-				      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
-				    </div>
+
 				  </div>
 			</div>
-
-
-
-					<% q.answers.each do |a| %>
-						<li><%= a.answer %></li>
-					<% end %>
 			
 
 		</div>	

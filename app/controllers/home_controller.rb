@@ -41,4 +41,14 @@ class HomeController < ApplicationController
 
 	end
 
+	def answer
+		@question = Question.find(params[:id])
+		@ans = @question.answers.create(:user_id => current_user.id,:content => params[:content])
+		respond_to do |format|
+			format.js{
+
+			}
+		end
+	end
+
 end

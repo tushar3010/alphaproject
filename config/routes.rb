@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post '/submit' => 'home#ans'
   get '/users' => 'home#all_users'
   post '/toggle_question_upvote/:id' => 'home#toggle_question_upvote'
+  post '/answer/:id' => "home#answer"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

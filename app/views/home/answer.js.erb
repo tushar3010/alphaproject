@@ -1,0 +1,7 @@
+console.log("answer created");
+<% str= "#answer_modal_#{@question.id} .modal-content ul"%>
+$("<%= str %>").append("<%= escape_javascript(render 'answer',:a => @ans) %>");
+
+$('<%= str %>').on('hidden.bs.modal', function() {
+  return false;
+});
