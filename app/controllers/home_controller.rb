@@ -25,10 +25,10 @@ class HomeController < ApplicationController
 
 	def toggle_question_upvote
 		@question = Question.find(params[:id])
-		upvote = @question.upvotes.first
+		upvote = @question.upvotes.where(:user_id => current_user.id).first
 
 		if upvote.nil?
-			@question.upvotes.create
+			@question.upvotes.create(:user_id => current_user.id)
 		else
 			upvote.destroy
 		end
@@ -40,6 +40,25 @@ class HomeController < ApplicationController
 		end
 
 	end
+
+	def toggle_answer_upvote
+		@answer = Answer.find(params[:id])
+		upvote = @answer.upvotes.where(:user_id => current_user.id).first
+
+		if upvote.nil?
+			@answer.upvotes.create(:user_id => current_user.id)
+		else
+			upvote.destroy
+		end
+
+		respond_to do |format|
+			format.js{
+
+			}
+		end
+
+	end
+
 
 	def answer
 		@question = Question.find(params[:id])

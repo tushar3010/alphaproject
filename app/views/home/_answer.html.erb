@@ -1,3 +1,15 @@
 <li>
 	<%= a.content %>
+	<% str="/toggle_answer_upvote/#{a.id}" %>
+	<% html_id_for_ques = "answer#{a.id}" %>
+	<% upvote_status = is_answer_upvoted(a.id) ? "Downvote" : "Upvote" %>
+    <div>
+		<span>
+		<%= link_to upvote_status,str,method: :post,:id=>html_id_for_ques,:remote=>true %>
+		</span>
+		<span id="answer_count_<%= a.id %>">
+		<%= a.upvotes.count %>
+		</span>
+	</div>
+
 </li>

@@ -1,5 +1,5 @@
-<% str = "#question_#{@question.id}" %>
-<% str_1 = "#question_count_#{@question.id}" %>
+<% str = "#answer#{@answer.id}" %>
+<% str_1 = "#answer_count_#{@answer.id}" %>
 var link = $("<%= str %>");
 var stringValue = link.text();
 var finalValue = toggle(stringValue);

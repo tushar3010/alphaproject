@@ -59,7 +59,15 @@
 				  <% str="/toggle_question_upvote/#{q.id}" %>
 				  <% html_id_for_ques = "question_#{q.id}" %>
 				  <% upvote_status = is_question_upvoted(q.id) ? "Downvote" : "Upvote" %>
-				  <%= link_to upvote_status,str,method: :post,:id=>html_id_for_ques,:remote=>true %>
+				  
+				  <div>
+					  <span>
+					  	<%= link_to upvote_status,str,method: :post,:id=>html_id_for_ques,:remote=>true %>
+					  </span>
+					  <span id="question_count_<%= q.id %>">
+					  	<%= q.upvotes.count %>
+					  </span>
+				  </div>
 				  <% str="answer_modal_#{q.id}" %>	
 				  
 				  <!-- Modal Structure -->
