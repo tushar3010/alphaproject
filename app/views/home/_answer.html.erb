@@ -1,5 +1,6 @@
 <li>
 	<%= a.content %>
+	<br>
 	<% str="/toggle_answer_upvote/#{a.id}" %>
 	<% html_id_for_ques = "answer#{a.id}" %>
 	<% upvote_status = is_answer_upvoted(a.id) ? "Downvote" : "Upvote" %>

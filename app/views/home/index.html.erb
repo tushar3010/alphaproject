@@ -3,20 +3,20 @@
 	
     <!-- Dropdown Structure -->
 	<ul id="dropdown1" class="dropdown-content">
-	  <li><a href="#!">one</a></li>
-	  <li><a href="#!">two</a></li>
+	  <li><a href="#!">Friends</a></li>
+	  <li><a href="#!">Account Settings</a></li>
 	  <li class="divider"></li>
-	  <li><a href="#!">three</a></li>
+	  <li><%= link_to "Sign Out",destroy_user_session_path,method: :delete %></li>>Sign Out</li>
 	</ul>
 	<nav>
 	  <div class="nav-wrapper">
 	    <a href="#!" class="brand-logo">askbefikar</a>
 	    <ul class="right hide-on-med-and-down">
-	      <li><%= link_to "Users", '/' %></li>
+	      <li><%= link_to "Users", '/users' %></li>
 	      <li><%= link_to "Profile", edit_user_registration_path %></li>
 	      <li><%= link_to "Sign Out",destroy_user_session_path,method: :delete %></li>
 	      <!-- Dropdown Trigger -->
-	      <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
+	      <li><a class="dropdown-button" href="#!" data-activates="dropdown1">  <i class="material-icons right">arrow_drop_down</i></a></li>
 	    </ul>
 	  </div>
 	</nav>
@@ -29,7 +29,7 @@
 	<div class="leftblock"> </div>	
 	<div class="centreblock">
 
-		<div class="create_ques">
+		<div class="create_ques" >
 
 			<%= form_tag url_for(controller: 'home',action: 'ques',method: :post) do %>
 
@@ -73,14 +73,24 @@
 				  <!-- Modal Structure -->
 				  <div id=<%= str %> class="modal modal-fixed-footer">
 				    <div class="modal-content">
+				      <h4>Answers</h4>
 				      <%= form_tag url_for(controller: 'home',action: 'answer',method: :post,:id=>q.id),:class=>"answer_form",:id=>"ans_form_#{q.id}",remote: true do%>
 				      		<%= text_area_tag :content%>
 				      		<%= submit_tag :Submit,:class=>"modal-action modal-close waves-effect waves-green btn-flat " %>
-				      <% end %>				    	
-				      <h4>Answers</h4>
+				      		
+				      <% end %>	
+
+				      
+				      
 				      <ul>
+
 				      	<% q.answers.each do |a| %>
-								<%= render 'answer',:a => a %>
+								<div id="ans">
+									<%= a.user.email%>
+									<%= render 'answer',:a => a %>
+									<br>
+								</div>
+
 						<% end %>
 				      </ul>	
 				    </div>
@@ -110,9 +120,4 @@
 	 <a id="totop" href="#linksHeading">Go to top of the page</a>
  
 	
-
-
-
- 
 </footer>
-

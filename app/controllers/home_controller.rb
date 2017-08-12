@@ -21,6 +21,7 @@ class HomeController < ApplicationController
 
 	def all_users
 		@users = User.all
+
 	end
 
 	def toggle_question_upvote
@@ -70,4 +71,6 @@ class HomeController < ApplicationController
 		end
 	end
 
+
+	
 end
