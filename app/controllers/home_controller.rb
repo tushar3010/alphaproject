@@ -71,6 +71,14 @@ class HomeController < ApplicationController
 		end
 	end
 
+	def question_delete
+		Question.find(params[:id]).destroy
+		redirect_to root_path
+	end
 
+	def answer_delete
+		Answer.find(params[:id]).destroy
+		redirect_to root_path
+	end
 	
 end

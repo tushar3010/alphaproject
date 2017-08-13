@@ -6,10 +6,14 @@
 	<% upvote_status = is_answer_upvoted(a.id) ? "Downvote" : "Upvote" %>
     <div>
 		<span>
-		<%= link_to upvote_status,str,method: :post,:id=>html_id_for_ques,:remote=>true %>
+			<%= link_to upvote_status,str,method: :post,:id=>html_id_for_ques,:remote=>true %>
 		</span>
 		<span id="answer_count_<%= a.id %>">
-		<%= a.upvotes.count %>
+			<%= a.upvotes.count %>
+		</span>
+		<span>
+			<% str = "/answer/#{a.id}/delete" %>
+			<%= link_to 'Delete',str,method: "delete" %>
 		</span>
 	</div>
 

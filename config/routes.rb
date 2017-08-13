@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   post '/toggle_question_upvote/:id' => 'home#toggle_question_upvote'
   post '/toggle_answer_upvote/:id' => 'home#toggle_answer_upvote'
   post '/answer/:id' => "home#answer"
+  delete '/question/:id/delete' => 'home#question_delete'
+  delete '/answer/:id/delete' => 'home#answer_delete'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
